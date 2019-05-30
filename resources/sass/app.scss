@@ -1,0 +1,28 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.dataTable {
+    &>tbody>tr{
+        cursor: pointer;
+
+        &.shown{
+            font-weight: bold;
+        }
+
+        table {
+            font-size: 90%;
+            cursor: initial;
+
+            td {
+                border-top: medium none;
+            }
+        }
+    }
+}
