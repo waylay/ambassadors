@@ -37,7 +37,22 @@ class ReferralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'ambassador_name' => ['required', 'string', 'max:255'],
+            'ambassador_email' => ['required', 'string', 'email', 'max:255', 'unique:referrals'],
+            'ambassador_phone' => ['required', 'string', 'max:255'],
+            'referral_name' => ['required', 'string', 'max:255'],
+            'referral_email' => ['required', 'string', 'email', 'max:255', 'unique:referrals'],
+            'referral_phone' => ['required', 'string', 'max:255'],
+            'referral_job' => ['required', 'string', 'max:255'],
+            'referral_location' => ['required', 'string', 'max:255'],
+        ]);
+
+        Referral::create($validatedData);
+
+        // send mail
+
+        return redirect()->back()->with('message', 'success');
     }
 
     /**

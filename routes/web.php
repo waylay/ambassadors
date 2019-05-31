@@ -15,12 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/refer', 'ReferralController@store')->name('refer');
+
 Auth::routes(['verify' => true]);
-
-Route::get('register', function () {
-    return view('welcome');
-})->name('register');
-
 
 
 Route::prefix('dashboard')->middleware('verified')->group(function () {

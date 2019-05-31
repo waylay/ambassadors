@@ -11,18 +11,24 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/select/1.3.0/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css">
+
+
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-md">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -74,12 +80,77 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Footer -->
+        <footer class="page-footer font-small bg-primary text-white pt-5">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-8 mt-md-0 mt-3">
+
+              <!-- Content -->
+              <h4 class="mb-2">HH Staffing Services</h4>
+              <p>Our mission is to be the most respected staffing firm in each market we serve by providing best-in-class, extra-mile workforce solutions to our valued clients and associate employees. We serve clients in Florida and throughout the entire United States.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+
+            <!-- Grid column -->
+            <div class="col-md-3 offset-md-1 mb-md-0 mb-3">
+
+              <!-- Links -->
+              <h4 class="mb-2">Talk to us</h4>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="tel:9417516262" class="text-white">Phone: (941) 751-6262 </a>
+                </li>
+                <li>Fax: (941) 758-5424</li>
+              </ul>
+
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-info py-3">© {{ date('Y') }} Copyright
+          <a href="https://hhstaffingservices.com/" class="text-white"> HH Staffing Services</a>. <br class="d-block d-md-none">All rights reserved.
+        </div>
+        <!-- Copyright -->
+
+      </footer>
+      <!-- Footer -->
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+    <script src="//cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
+
+
+
 
     @stack('scripts')
 

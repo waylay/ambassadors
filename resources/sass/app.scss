@@ -1,20 +1,24 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+main {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    min-height: 75vh;
+    justify-content: center;
+    background-image: url('/images/bg.png');
+    background-repeat: no-repeat;
+    background-position: 30% center;
+    background-color: #404040;
+}
 
 .dataTable {
     &>tbody>tr{
         cursor: pointer;
-
-        &.shown{
-            font-weight: bold;
-        }
 
         table {
             font-size: 90%;
