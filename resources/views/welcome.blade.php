@@ -4,6 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-6">
+            @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="mb-0"><strong>Done!</strong> Thank you for referring <strong class="alert-link">{{ session('success') }}</strong>!</h4>
+            </div>
+            @endif
             <form method="POST" action="{{ route('refer') }}">
                 @csrf
                 <div class="card card-ambassador border-success mt-4 mb-4">

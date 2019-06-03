@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Referral;
 use Illuminate\Http\Request;
 use Freshbitsweb\Laratables\Laratables;
-
+use App\Ambassador;
 
 class ReferralController extends Controller
 {
@@ -18,6 +18,7 @@ class ReferralController extends Controller
     {
         return Laratables::recordsOf(Referral::class);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,20 +40,38 @@ class ReferralController extends Controller
     {
         $validatedData = $request->validate([
             'ambassador_name' => ['required', 'string', 'max:255'],
-            'ambassador_email' => ['required', 'string', 'email', 'max:255', 'unique:referrals'],
+            'ambassador_email' => ['required', 'string', 'email', 'max:255'],
             'ambassador_phone' => ['required', 'string', 'max:255'],
             'referral_name' => ['required', 'string', 'max:255'],
-            'referral_email' => ['required', 'string', 'email', 'max:255', 'unique:referrals'],
+            'referral_email' => ['required', 'string', 'email', 'max:255', 'unique:referrals,email'],
             'referral_phone' => ['required', 'string', 'max:255'],
             'referral_job' => ['required', 'string', 'max:255'],
             'referral_location' => ['required', 'string', 'max:255'],
         ]);
 
-        Referral::create($validatedData);
+
+        $ambassador = Ambassador::firstOrCreate(
+            [
+                'email' => $validatedData['ambassador_email']
+            ],
+            [
+                'name' => $validatedData['ambassador_name'],
+                'phone' => $validatedData['ambassador_phone']
+            ]
+        );
+
+        Referral::create([
+            'ambassador_id' => $ambassador->id,
+            'name'          => $validatedData['referral_name'],
+            'email'         => $validatedData['referral_email'],
+            'phone'         => $validatedData['referral_phone'],
+            'job'           => $validatedData['referral_job'],
+            'location'      => $validatedData['referral_location'],
+        ]);
 
         // send mail
 
-        return redirect()->back()->with('message', 'success');
+        return redirect()->back()->with('success', $validatedData['referral_name']);
     }
 
     /**

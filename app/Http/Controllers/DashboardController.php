@@ -21,8 +21,18 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function dashboard()
     {
         return view('dashboard');
+    }
+
+    /**
+     * Show the application ambassadors.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function ambassadors()
+    {
+        return view('ambassadors');
     }
 }

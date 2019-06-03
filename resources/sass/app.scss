@@ -17,16 +17,41 @@ main {
 }
 
 .dataTable {
-    &>tbody>tr{
-        cursor: pointer;
 
-        table {
-            font-size: 90%;
-            cursor: initial;
+    &>tbody {
+        background: #f7f7f7;
+        &>tr{
+            cursor: pointer;
 
-            td {
-                border-top: medium none;
+            &.shown + tr {
+                background-color: #ebf6ff;
             }
+
+            table {
+                cursor: initial;
+
+                td {
+                    border-top: medium none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    div.dataTables_wrapper {
+        .dt-buttons {
+            float: left;
+            margin-bottom: 15px;
+        }
+
+        .dataTables_filter {
+            margin-right: 15px;
+        }
+        .dataTables_length {
+            clear: both;
+            margin-top: 20px;
+            margin-left: 5px;
         }
     }
 }

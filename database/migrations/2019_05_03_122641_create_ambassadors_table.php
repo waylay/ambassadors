@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferralsTable extends Migration
+class CreateAmbassadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateReferralsTable extends Migration
      */
     public function up()
     {
-        Schema::create('referrals', function (Blueprint $table) {
+        Schema::create('ambassadors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('ambassador_id');
-            $table->foreign('ambassador_id')->references('id')->on('ambassadors')->onDelete('cascade');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->string('job');
-            $table->string('location');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateReferralsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('referrals');
+        Schema::dropIfExists('ambassadors');
     }
 }

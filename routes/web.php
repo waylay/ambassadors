@@ -21,6 +21,8 @@ Auth::routes(['verify' => true]);
 
 
 Route::prefix('dashboard')->middleware('verified')->group(function () {
-    Route::get('/', 'DashboardController@index')->name('dashboard');
-    Route::get('/referrals', 'ReferralController@index')->name('referrals_list');
+    Route::get('/', 'DashboardController@dashboard')->name('dashboard');
+    Route::get('/ambassadors', 'DashboardController@ambassadors')->name('ambassadors');
+    Route::get('/api/referrals', 'ReferralController@index')->name('referrals_list');
+    Route::get('/api/ambassadors', 'AmbassadorController@index')->name('ambassadors_list');
 });

@@ -11,7 +11,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/select/1.3.0/css/select.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css">
 
 
@@ -78,7 +77,36 @@
         </nav>
 
         <main class="py-4">
+
             @yield('content')
+
+            @if(Request::is('dashboard*'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+                            <div class="card bg-dark text-white">
+                                <div class="card-header">System Information</div>
+                                <div class="card-body text-center">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p>Administrator</p>
+                                            <p><strong>{{ Auth::user()->name }}</strong> </p>
+                                        </div><!-- /.col-md-4 -->
+                                        <div class="col-md-4">
+                                            <p>Ambassadors</p>
+                                            <h4><strong>{{ \App\Ambassador::count() }}</strong></h4>
+                                        </div><!-- /.col-md-4 -->
+                                        <div class="col-md-4">
+                                            <p>Referrals</p>
+                                            <h4><strong>{{ \App\Referral::count() }}</strong></h4>
+                                        </div><!-- /.col-md-4 -->
+                                    </div><!-- /.row -->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            @endif
         </main>
 
         <!-- Footer -->
@@ -146,7 +174,6 @@
     <script src="//cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-    <script src="//cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
     <script src="//cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
 
 

@@ -8,8 +8,10 @@ class Referral extends Model
 {
     protected $guarded = [];
 
-    public function user()
+    public function ambassador()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Ambassador');
     }
+
+
 }

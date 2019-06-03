@@ -10674,16 +10674,40 @@ main {
   background-color: #404040;
 }
 
+.dataTable > tbody {
+  background: #f7f7f7;
+}
+
 .dataTable > tbody > tr {
   cursor: pointer;
 }
 
+.dataTable > tbody > tr.shown + tr {
+  background-color: #ebf6ff;
+}
+
 .dataTable > tbody > tr table {
-  font-size: 90%;
   cursor: initial;
 }
 
 .dataTable > tbody > tr table td {
   border-top: medium none;
+}
+
+@media screen and (min-width: 768px) {
+  div.dataTables_wrapper .dt-buttons {
+    float: left;
+    margin-bottom: 15px;
+  }
+
+  div.dataTables_wrapper .dataTables_filter {
+    margin-right: 15px;
+  }
+
+  div.dataTables_wrapper .dataTables_length {
+    clear: both;
+    margin-top: 20px;
+    margin-left: 5px;
+  }
 }
 

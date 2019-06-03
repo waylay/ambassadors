@@ -8,10 +8,10 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="{{ route('dashboard') }}">Referrals</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}">Referrals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ambassadors') }}">Ambassadors</a>
+                            <a class="nav-link active text-white" href="{{ route('ambassadors') }}">Ambassadors</a>
                         </li>
                     </ul>
                 </div>
@@ -23,8 +23,8 @@
                         </div>
                     @endif
                     <div class="referrals-list dataTables_wrapper dt-bootstrap4">
-                        @referrals
-                        @endreferrals
+                        @ambassadors
+                        @endambassadors
                     </div>
                 </div>
             </div>
