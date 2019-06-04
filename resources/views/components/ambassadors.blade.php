@@ -5,6 +5,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Referrals</th>
+                <th>Join date</th>
             </tr>
         </thead>
     </table>
@@ -13,21 +14,26 @@
         <script>
             $(document).ready(function() {
                 function format ( d ) {
-                    console.log(d);
-
+                    var referrals = '';
+                    d[3].split("|").forEach(function(referral){
+                        referrals = referrals + '<a href="' + '{{ route("dashboard") }}?search=' + referral.trim() + '">' + referral.trim() + '</a><br>';
+                    });
                     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%;">'+
                         '<tr>'+
-                            '<td>Date:</td>'+
-                            '<td>'+d[4]+'</td>'+
+                            '<td style="white-space:nowrap;">Referrals:</td>'+
+                            '<td>'+ referrals +'</td>'+
                         '</tr>'+
                         '<tr>'+
-                            '<td>Referrals:</td>'+
-                            '<td>'+ d[3] +'</td>'+
+                            '<td style="white-space:nowrap; min-width: 100px; width: 25%;">Join date:</td>'+
+                            '<td>'+ d[4] +'</td>'+
                         '</tr>'+
                     '</table>';
                 }
                 var currentdate = new Date();
                 var formatDate = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1)  + "-" + currentdate.getDate();
+                function getSearchParam(){
+                    return decodeURI(window.location.href.slice(window.location.href.indexOf('?') + 1).split('=')[1]);
+                }
                 var table = $('#ambassadors-list-table').DataTable({
                     lengthMenu: [ [10, 25, 50, 100000], [10, 25, 50, "All"] ],
                     scrollY: 500,
@@ -78,6 +84,10 @@
                         $(row).addClass("top-level-row");
                     },
                 });
+
+                if(getSearchParam() != 'undefined') {
+                    table.search(getSearchParam()).draw();
+                }
 
                 $('#ambassadors-list-table').on('click', '.top-level-row', function () {
                     var tr = $(this);

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card mt-3">
                 <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
+                    <ul class="nav nav nav-pills card-header-pills justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link active text-white" href="{{ route('dashboard') }}">Referrals</a>
                         </li>

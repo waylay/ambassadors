@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,15 @@ Route::prefix('dashboard')->middleware('verified')->group(function () {
     Route::get('/ambassadors', 'DashboardController@ambassadors')->name('ambassadors');
     Route::get('/api/referrals', 'ReferralController@index')->name('referrals_list');
     Route::get('/api/ambassadors', 'AmbassadorController@index')->name('ambassadors_list');
+});
+
+Route::get('mail', function () {
+    $referral = App\Referral::find(1);
+    $ambassador = App\Ambassador::find(1);
+
+    return (new App\Notifications\NewReferral([
+        'referral' => $referral,
+        'ambassador' => $ambassador,
+    ]))
+                ->toMail(Auth::user());
 });

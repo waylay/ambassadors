@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <label for="ambassador_phone" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                             <div class="col-md-6">
-                                <input id="ambassador_phone" type="text" class="form-control @error('ambassador_phone') is-invalid @enderror" name="ambassador_phone" value="{{ old('phone') }}" required autocomplete="tel">
+                                <input id="ambassador_phone" type="text" class="form-control @error('ambassador_phone') is-invalid @enderror" name="ambassador_phone" value="{{ old('ambassador_phone') }}" required autocomplete="tel">
 
                                 @error('ambassador_phone')
                                     <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                             <div class="form-group row">
                                 <label for="referral_phone" class="col-md-4 col-form-label text-md-right">Phone</label>
                                 <div class="col-md-6">
-                                    <input id="referral_phone" type="text" class="form-control @error('referral_phone') is-invalid @enderror" name="referral_phone" value="{{ old('phone') }}" required autocomplete="disabled">
+                                    <input id="referral_phone" type="text" class="form-control @error('referral_phone') is-invalid @enderror" name="referral_phone" value="{{ old('referral_phone') }}" required autocomplete="disabled">
 
                                     @error('referral_phone')
                                         <span class="invalid-feedback" role="alert">
@@ -140,6 +140,18 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group row my-4">
+                                <div class="col-md-6 offset-md-4">
+                                    {!! NoCaptcha::display() !!}
+
+                                    @error('g-recaptcha-response')
+                                        <span class="invalid-feedback" role="alert" style="display: block">
+                                            <strong>Invalid reCAPTCHA</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="form-group row mt-4 mb-1">
                                 <div class="col-md-6 offset-md-4 text-right">

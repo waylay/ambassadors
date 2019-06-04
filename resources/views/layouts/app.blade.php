@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css">
 
 
+    {!! NoCaptcha::renderJs() !!}
 
 </head>
 <body>

@@ -10711,3 +10711,10 @@ main {
   }
 }
 
+.g-recaptcha {
+  -webkit-transform: scale(0.79);
+          transform: scale(0.79);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+

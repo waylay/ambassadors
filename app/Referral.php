@@ -12,6 +12,4 @@ class Referral extends Model
     {
         return $this->belongsTo('App\Ambassador');
     }
-
-
 }

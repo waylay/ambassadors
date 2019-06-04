@@ -6,6 +6,8 @@ use App\Referral;
 use Illuminate\Http\Request;
 use Freshbitsweb\Laratables\Laratables;
 use App\Ambassador;
+use App\Notifications\NewReferral;
+use Illuminate\Support\Facades\Notification;
 
 class ReferralController extends Controller
 {
@@ -47,6 +49,7 @@ class ReferralController extends Controller
             'referral_phone' => ['required', 'string', 'max:255'],
             'referral_job' => ['required', 'string', 'max:255'],
             'referral_location' => ['required', 'string', 'max:255'],
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
 
@@ -60,7 +63,7 @@ class ReferralController extends Controller
             ]
         );
 
-        Referral::create([
+        $referral = Referral::create([
             'ambassador_id' => $ambassador->id,
             'name'          => $validatedData['referral_name'],
             'email'         => $validatedData['referral_email'],
@@ -70,6 +73,10 @@ class ReferralController extends Controller
         ]);
 
         // send mail
+        Notification::send(\App\User::all(), new NewReferral([
+            'ambassador' => $ambassador,
+            'referral' => $referral
+        ]));
 
         return redirect()->back()->with('success', $validatedData['referral_name']);
     }

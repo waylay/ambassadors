@@ -24,4 +24,11 @@ class Ambassador extends Model
     {
         return implode(" | ",$ambassador->referrals->pluck('name')->all());
     }
+
+    public static function laratablesSearchReferrals($query, $searchValue)
+    {
+        return $query->orWhereHas('referrals', function($query) use ($searchValue) {
+            return $query->where('name', 'like', '%'. $searchValue. '%');
+        });
+    }
 }
