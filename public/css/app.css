@@ -10727,14 +10727,11 @@ main {
 }
 
 .details {
-  padding: 15px 10px;
+  display: none;
+  padding: 30px 20px;
   clear: both;
   overflow: hidden;
   cursor: initial;
-}
-
-.details input[type=checkbox] {
-  margin: 0 2px 0 0;
 }
 
 .details label {
@@ -10766,7 +10763,7 @@ main {
 
 .details ul li p {
   background-color: #fafafa;
-  padding: 5px 10px;
+  padding: 10px 15px;
   margin-bottom: 0;
   border-radius: 6px 6px 0 6px;
 }
@@ -10777,7 +10774,7 @@ main {
   color: #666;
   font-family: serif;
   line-height: 1.1em;
-  background-color: #fafafa;
+  background-color: #efefef;
   padding: 3px 8px;
   border-radius: 0 0 3px 3px;
 }

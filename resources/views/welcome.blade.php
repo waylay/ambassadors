@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="card card-referral border-warning">
+                <div class="card card-referral border-warning mb-3">
                         <div class="card-header text-white bg-warning"><h5 class="mb-0 w-100">Referral <span class="small float-right">person you are referring</span></h5></div>
                         <div class="card-body">
                             <div class="form-group row">

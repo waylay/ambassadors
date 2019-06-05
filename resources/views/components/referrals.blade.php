@@ -7,10 +7,11 @@
             <th>Job</th>
             <th>Location</th>
             <th>Ambassador</th>
+            <th>Date</th>
             <th>Hired</th>
             <th>Hours</th>
-            <th>Notes</th>
-            <th>Date</th>
+            <th class="no-export">Notes</th>
+            <th class="no-export">ID</th>
         </tr>
     </thead>
 </table>
@@ -23,7 +24,7 @@
             if (notes.length) {
                 output += '<ul>';
                 notes.forEach(function(note) {
-                    output += '<li><p>' + note.note + '</p>' + '<em><small>By <strong>' + note.user.name + '</strong>, on ' + note.created_at +'</small></em></li>';
+                    output += '<li><p>' + note.note + '</p>' + '<em><small><strong>' + note.user.name + '</strong> on ' + note.created_at +'</small></em></li>';
                 });
                 output += '</ul>';
             }
@@ -34,27 +35,29 @@
             function format ( d ) {
                 return '<div class="details"><form class="details-form">' +
                     '<div class="row">' +
-                    '<div class="col-md-8">' +
+                    '<div class="col-md-6" style="line-height: 1.9em;">' +
+                        '<h5><strong>Ambassador:</strong> ' + '<a href="' + '{{ route("ambassadors") }}?search=' + d[5] + '">' + d[5] + '</a>' + '</h5><br>' +
                         '<input type="hidden" name="id" value="' + d[10] + '">' +
-                        '<h5><strong>Ambassador:</strong> ' + d[5] + '</h5><br>' +
+                        '<strong>Name:</strong> ' + d[0] + '<br>' +
+                        '<strong>Email:</strong> ' + d[1] + '<br>' +
                         '<strong>Phone:</strong> ' + d[2] + '<br>' +
+                        '<strong>Job:</strong> ' + d[3] + '<br>' +
+                        '<strong>Location:</strong> ' + d[4] + '<br>' +
                         '<strong>Date:</strong> ' + d[6] + '<br>' +
-                        '<br><label class="form-check-label"><strong>Notes:</strong></label>' +
+                    '</div>' +
+                    '<div class="col-md-6">' +
+                        '<div class="form-group row mb-2"><div class="col-4"><strong class="ml-1">Hired?</strong></div><div class="col-8"><input type="checkbox" id="hired" name="hired" ' + ( d[7] ? ' checked ' : '' ) + '"></div></div>' +
+                        '<div class="form-group row"><label class="col-4 col-form-label"><strong class="ml-1">Hours</strong></label><div class="col-8"><input class="form-control" type="number" id="hours" name="hours" value="' + d[8] + '"' + '" style="width: 75px;"></div></div>' +
+                        '<label class="form-check-label"><strong class="ml-1">Notes:</strong></label>' +
                         show_notes(d[9]) +
                         '<textarea name="note" class="form-control" placeholder="Add note"></textarea>' +
-                        '<button class="btn btn-success btn-claim btn-md text-uppercase save mt-3" type="submit">SAVE</button>' +
+                        '<button class="btn btn-primary btn-claim btn-md text-uppercase save mt-3" type="submit">SAVE</button>' +
                         '<div class="response"></div>' +
-                    '</div>' +
-                    '<div class="col-md-4">' +
-                        '<div class="form-group row mt-3 mb-1"><div class="col-5">Hired</div><div class="col-7"><input class="form-check-input" type="checkbox" id="hired" name="hired" ' + ( d[7] ? ' checked ' : '' ) + '"></div></div>' +
-                        '<div class="form-group row"><label class="col-5 col-form-label">Total Hours</label><div class="col-7"><input class="form-control" type="text" id="hours" name="hours" value="' + d[8] + '"' + '"></div></div>' +
                     '</div>' +
                     '</div>' +
                 '</form></div>';
             }
             function format2 ( d ) {
-
-
                 return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%;">'+
                     '<tr>'+
                         '<td>Phone:</td>'+
@@ -89,14 +92,47 @@
                 order: [[ 6, "desc" ]],
                 ajax: "{{ route('referrals_list') }}",
                 buttons: [
-                    'copy',
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(.no-export)'
+                        }
+                    },
                     {
                         extend: 'csv',
                         title: 'Referrals-' + formatDate,
+                        exportOptions: {
+                            columns: ':not(.no-export)',
+                            format: {
+                                header: function ( data, columnIdx ) {
+                                    if(columnIdx == 3) {
+                                        return 'Job';
+                                    }
+                                    if(columnIdx == 4) {
+                                        return 'Location';
+                                    }
+                                    return data;
+                                }
+                            }
+                        }
                     },
                     {
                         extend: 'pdf',
                         title: 'Referrals-' + formatDate,
+                        exportOptions: {
+                            columns: ':not(.no-export)',
+                            format: {
+                                header: function ( data, columnIdx ) {
+                                    if(columnIdx == 3) {
+                                        return 'Job';
+                                    }
+                                    if(columnIdx == 4) {
+                                        return 'Location';
+                                    }
+                                    return data;
+                                }
+                            }
+                        },
                         orientation: 'landscape',
                         pageSize: 'LEGAL'
                     }
@@ -115,7 +151,6 @@
                         name: 'phone',
                         orderable: false,
                         visible: false
-
                     },
                     {
                         name: 'job',
@@ -146,7 +181,8 @@
                     {
                         name: 'notes',
                         orderable: false,
-                        visible: false
+                        visible: false,
+                        searchable: false
                     },
                     {
                         name: 'id',
@@ -163,10 +199,7 @@
                         var select = $('<select><option value="">'+ $(this.header()).text() +'</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                    );
-
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
                                     column.search( val ? '^'+val+'$' : '', true, false ).draw();
                                 } );
 
@@ -213,13 +246,16 @@
 
                 if ( row.child.isShown() ) {
                     // This row is already open - close it
-                    row.child.hide();
-                    tr.removeClass('shown');
+                    $('.details', row.child()).slideUp( function () {
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    });
                 }
                 else {
                     // Open this row
                     if (row.data()) {
-                        row.child( format(row.data()) ).show();
+                        row.child( format( row.data() ) ).show();
+                        $('.details', row.child()).slideDown();
                         tr.addClass('shown');
                     }
                 }
@@ -243,16 +279,33 @@
                     url: '/dashboard/api/referrals/' + data.id,
                     data: data,
                     success: function( response ) {
-                        var numeric_array = new Array();
-                        for (var items in response.data){
-                            numeric_array.push( response.data[items] );
-                        }
+                        var correct_data = [];
 
-                        console.log(row.data());
-                        console.log(numeric_array);
+                        correct_data[0] = response.data.name;
+                        correct_data[1] = response.data.email;
+                        correct_data[2] = response.data.phone;
+                        correct_data[3] = response.data.job;
+                        correct_data[4] = response.data.location;
+                        correct_data[5] = response.data.ambassador.name;
+                        correct_data[6] = response.data.created_at;
+                        correct_data[7] = response.data.hired;
+                        correct_data[8] = response.data.hours;
+                        correct_data[9] = response.data.notes;
+                        correct_data[10] = response.data.id;
+                        correct_data['DT_RowId'] = response.data.DT_RowId;
+
+
+
                         var idx = row.index();
-                        row.data( numeric_array ).draw( 'page' );
+                        row.data( correct_data );
                         table.row(idx).child( format( row.data() ) ).show();
+                        $('.details', row.child()).show();
+                        $('.details', row.child()).find('button').text('Updated').toggleClass('btn-success').attr('disabled','disabled');
+
+
+                        setTimeout(function () {
+                            $('.details', row.child()).find('button').text('Save').toggleClass('btn-success').removeAttr('disabled');
+                        }, 1000);
 
                     }
                 });

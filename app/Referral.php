@@ -15,7 +15,7 @@ class Referral extends Model
 
     public function notes()
     {
-        return $this->morphMany('App\Note', 'notable');
+        return $this->morphMany('App\Note', 'notable')->oldest();
     }
 
     public static function laratablesCustomNotes($referral)

@@ -129,15 +129,17 @@ class ReferralController extends Controller
 				    'created_at' => Carbon::now(),
 			    ]);
 			    $referral->notes()->save($note);
-		    }
-		    $referral->save();
+            }
+
+            $referral->save();
 
 		    return response()->json([
 		    	'success' => true,
 			    'data' => $referral->load([
                     'notes' => function ($query){  $query->latest(); },
-                    'notes.user'
-			    ]),
+                    'notes.user',
+                    'ambassador',
+                ]),
 		    ], 200);
 	    }
 	    catch(Exception $e)

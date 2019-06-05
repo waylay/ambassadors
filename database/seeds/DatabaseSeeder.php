@@ -17,6 +17,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'cristian.ionel@gmail.com',
         ]);
 
+        factory(App\User::class)->create([
+            'name' => 'Robert Urban',
+            'email' => 'roberturban78@gmail.com',
+        ]);
+
         factory(App\Ambassador::class, 15)
             ->create()
             ->each(function ($ambassador) {
