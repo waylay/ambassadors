@@ -22,6 +22,8 @@ class CreateReferralsTable extends Migration
             $table->string('phone');
             $table->string('job');
             $table->string('location');
+            $table->boolean('hired')->default(FALSE);
+            $table->string('hours')->default('0');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ Route::prefix('dashboard')->middleware('verified')->group(function () {
     Route::get('/', 'DashboardController@dashboard')->name('dashboard');
     Route::get('/ambassadors', 'DashboardController@ambassadors')->name('ambassadors');
     Route::get('/api/referrals', 'ReferralController@index')->name('referrals_list');
+    Route::post('/api/referrals/{referral}', 'ReferralController@update')->name('referrals_update');
     Route::get('/api/ambassadors', 'AmbassadorController@index')->name('ambassadors_list');
 });
 

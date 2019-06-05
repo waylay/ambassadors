@@ -8,6 +8,9 @@ use Freshbitsweb\Laratables\Laratables;
 use App\Ambassador;
 use App\Notifications\NewReferral;
 use Illuminate\Support\Facades\Notification;
+use App\Note;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ReferralController extends Controller
 {
@@ -112,7 +115,39 @@ class ReferralController extends Controller
      */
     public function update(Request $request, Referral $referral)
     {
-        //
+        $referral->hired = $request->has('hired')  ? 1 : 0;
+        $referral->hours = $request['hours'];
+
+	    try
+	    {
+		    if($request->has('note') && !empty($request['note'])){
+			    $note = new Note([
+				    'note' => $request['note'],
+				    'user_id' => Auth::id(),
+				    'notable_id' => $referral->id,
+				    'notable_type' => 'App\Referral',
+				    'created_at' => Carbon::now(),
+			    ]);
+			    $referral->notes()->save($note);
+		    }
+		    $referral->save();
+
+		    return response()->json([
+		    	'success' => true,
+			    'data' => $referral->load([
+                    'notes' => function ($query){  $query->latest(); },
+                    'notes.user'
+			    ]),
+		    ], 200);
+	    }
+	    catch(Exception $e)
+	    {
+		    return response()->json([
+			    'success' => 'false',
+			    'errors'  => $e->getMessage(),
+		    ], 400);
+	    }
+
     }
 
     /**

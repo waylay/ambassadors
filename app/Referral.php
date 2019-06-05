@@ -12,4 +12,14 @@ class Referral extends Model
     {
         return $this->belongsTo('App\Ambassador');
     }
+
+    public function notes()
+    {
+        return $this->morphMany('App\Note', 'notable');
+    }
+
+    public static function laratablesCustomNotes($referral)
+    {
+        return $referral->notes->load('user');
+    }
 }

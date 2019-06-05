@@ -16,7 +16,7 @@ class Ambassador extends Model
     public static function laratablesRoleRelationQuery()
     {
         return function ($query) {
-            $query->with('referrals');
+            $query->with(['referrals', 'notes']);
         };
     }
 
@@ -31,4 +31,11 @@ class Ambassador extends Model
             return $query->where('name', 'like', '%'. $searchValue. '%');
         });
     }
+
+    public function notes()
+    {
+        return $this->morphMany('App\Note', 'notable');
+    }
+
+
 }

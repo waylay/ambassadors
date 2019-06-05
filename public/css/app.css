@@ -10674,6 +10674,14 @@ main {
   background-color: #404040;
 }
 
+.dataTable th {
+  font-size: 13px;
+}
+
+.dataTable .dtr-title {
+  font-weight: 600;
+}
+
 .dataTable > tbody {
   background: #f7f7f7;
 }
@@ -10716,5 +10724,61 @@ main {
           transform: scale(0.79);
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
+}
+
+.details {
+  padding: 15px 10px;
+  clear: both;
+  overflow: hidden;
+  cursor: initial;
+}
+
+.details input[type=checkbox] {
+  margin: 0 2px 0 0;
+}
+
+.details label {
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0;
+}
+
+.details a {
+  text-decoration: underline;
+}
+
+.details textarea {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+}
+
+.details ul {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.details ul li {
+  margin-bottom: 10px;
+  clear: both;
+  overflow: hidden;
+}
+
+.details ul li p {
+  background-color: #fafafa;
+  padding: 5px 10px;
+  margin-bottom: 0;
+  border-radius: 6px 6px 0 6px;
+}
+
+.details ul li em {
+  float: right;
+  display: block;
+  color: #666;
+  font-family: serif;
+  line-height: 1.1em;
+  background-color: #fafafa;
+  padding: 3px 8px;
+  border-radius: 0 0 3px 3px;
 }
 
