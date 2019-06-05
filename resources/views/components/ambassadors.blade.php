@@ -36,6 +36,7 @@
                 }
                 var table = $('#ambassadors-list-table').DataTable({
                     lengthMenu: [ [10, 25, 50, 100000], [10, 25, 50, "All"] ],
+                    iDisplayLength: 25,
                     scrollY: 500,
                     dom: 'Bflrtip',
                     serverSide: true,

@@ -3,7 +3,14 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
 
+    .logo {
+        max-width: 250px;
+    }
+}
 main {
     display: flex;
     flex-direction: column;
