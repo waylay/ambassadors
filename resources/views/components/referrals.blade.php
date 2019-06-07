@@ -87,8 +87,8 @@
                 scrollY: 500,
                 dom: 'Bflrtip',
                 serverSide: true,
-                processing: false,
-                deferRender: false,
+                processing: true,
+                deferRender: true,
                 order: [[ 6, "desc" ]],
                 ajax: "{{ route('referrals_list') }}",
                 buttons: [
@@ -194,49 +194,30 @@
                     $(row).addClass("top-level-row");
                 },
                 initComplete: function () {
-                    this.api().columns([3,4]).every( function () {
+                    this.api().columns([3,4]).every( function (index) {
                         var column = this;
                         var select = $('<select><option value="">'+ $(this.header()).text() +'</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                                    column.search( val ? '^'+val+'$' : '', true, false ).draw();
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                        $(this).val()
+                                    );
+                                    table.column(index).search(val, true, false).draw();
+                                } )
+                                .on( 'click', function (e) {
+                                    e.stopPropagation();
                                 } );
-
                         column.data().unique().sort().each( function ( d, j ) {
                             select.append( '<option value="'+d+'">'+d+'</option>' )
                         } );
                     } );
                 }
             });
+
+
             if(getSearchParam() != 'undefined') {
                 table.search(getSearchParam()).draw();
             }
-
-
-            table.columns( '.select-filter' ).every( function () {
-                var that = this;
-
-                // Create the select list and search operation
-                var select = $('<select />')
-                    .appendTo(
-                        this.footer()
-                    )
-                    .on( 'change', function () {
-                        that
-                            .search( $(this).val() )
-                            .draw();
-                    } );
-
-                // Get the search data for the first column and add to the select list
-                this
-                    .cache( 'search' )
-                    .sort()
-                    .unique()
-                    .each( function ( d ) {
-                        select.append( $('<option value="'+d+'">'+d+'</option>') );
-                    } );
-            });
 
 
 

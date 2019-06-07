@@ -107,10 +107,12 @@
                                 <div class="col-md-6">
                                     <select id="referral_job"class="form-control @error('referral_job') is-invalid @enderror" name="referral_job" value="{{ old('referral_job') }}" required autocomplete="disabled">
                                         <option value="" selected disabled hidden>Select</option>
-                                        <option value="Property Management">Property Management</option>
-                                        <option value="Accounting, Finance, HR">Accounting, Finance, HR</option>
-                                        <option value="Office Professional">Office Professional</option>
-                                        <option value="Light Industrial/Maintenance">Light Industrial/Maintenance</option>
+                                        <option value="Leasing Consultant/Property Management">Leasing Consultant/Property Management</option>
+                                        <option value="Accounting, Finance, HR, Marketing">Accounting, Finance, HR, Marketing</option>
+                                        <option value="Office Professional/Administrative">Office Professional/Administrative</option>
+                                        <option value="Light Industrial/Warehouse">Light Industrial/Warehouse</option>
+                                        <option value="Maintenance – HVAC">Maintenance – HVAC</option>
+                                        <option value="Maintenance/General Labor">Maintenance/General Labor</option>
                                     </select>
 
                                     @error('referral_job')
@@ -126,10 +128,10 @@
                                 <div class="col-md-6">
                                     <select id="referral_location"class="form-control @error('referral_location') is-invalid @enderror" name="referral_location" value="{{ old('referral_location') }}" required autocomplete="disabled">
                                         <option value="" selected disabled hidden>Select</option>
-                                        <option value="Sarasota">Sarasota</option>
-                                        <option value="Tampa">Tampa</option>
-                                        <option value="Orlando">Orlando</option>
-                                        <option value="Fort Lauderdale">Fort Lauderdale</option>
+                                        <option value="Sarasota/Bradenton Area">Sarasota/Bradenton Area</option>
+                                        <option value="Tampa Area">Tampa Area</option>
+                                        <option value="Orlando Area">Orlando Area</option>
+                                        <option value="Fort Lauderdale Area">Fort Lauderdale Area</option>
                                     </select>
 
                                     @error('referral_location')

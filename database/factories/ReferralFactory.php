@@ -15,16 +15,18 @@ $factory->define(Referral::class, function (Faker $faker) {
         'email'     => $faker->unique()->safeEmail,
         'phone'     => $faker->phoneNumber,
         'job'       => $faker->randomElement([
-            'Property Management',
-            'Accounting, Finance, HR',
-            'Office Professional',
-            'Light Industrial/Maintenance',
+            'Leasing Consultant/Property Management',
+            'Accounting, Finance, HR, Marketing',
+            'Office Professional/Administrative',
+            'Light Industrial/Warehouse',
+            'Maintenance – HVAC',
+            'Maintenance/General Labor',
         ]),
         'location'  => $faker->randomElement([
-            'Sarasota',
-            'Tampa',
-            'Orlando',
-            'Fort Lauderdale',
+            'Sarasota/Bradenton Area',
+            'Tampa Area',
+            'Orlando Area',
+            'Fort Lauderdale Area',
         ]),
     ];
 });
