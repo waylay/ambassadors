@@ -160,6 +160,11 @@ class ReferralController extends Controller
      */
     public function destroy(Referral $referral)
     {
-        //
+        if(!$referral->id){
+            return redirect()->back()->with('status', 'Referral not found!');
+        }
+        $status = 'Refferral '.$referral->name . ' has been deleted.';
+        $referral->delete();
+        return redirect()->back()->with('status', $status);
     }
 }

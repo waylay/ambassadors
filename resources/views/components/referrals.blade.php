@@ -35,7 +35,7 @@
             function format ( d ) {
                 return '<div class="details"><form class="details-form">' +
                     '<div class="row">' +
-                    '<div class="col-md-6" style="line-height: 1.9em;">' +
+                    '<div class="col-md-7" style="line-height: 1.9em;">' +
                         '<h5><strong>Ambassador:</strong> ' + '<a href="' + '{{ route("ambassadors") }}?search=' + d[5] + '">' + d[5] + '</a>' + '</h5><br>' +
                         '<input type="hidden" name="id" value="' + d[10] + '">' +
                         '<strong>Name:</strong> ' + d[0] + '<br>' +
@@ -44,37 +44,23 @@
                         '<strong>Job:</strong> ' + d[3] + '<br>' +
                         '<strong>Location:</strong> ' + d[4] + '<br>' +
                         '<strong>Date:</strong> ' + d[6] + '<br>' +
+                        '<div class="form-group row mt-2"><div class="col-12"><button class="btn btn-sm btn-primary btn-claim text-uppercase save mr-3" type="submit">Update</button><a href="/dashboard/api/delete_referrals/'+ d['DT_RowId'].replace(/\D/g, '') +'" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete referral: '+  d[0] +'\');">DELETE</a></div></div>' +
                     '</div>' +
-                    '<div class="col-md-6">' +
-                        '<div class="form-group row mb-2"><div class="col-4"><strong class="ml-1">Hired?</strong></div><div class="col-8"><input type="checkbox" id="hired" name="hired" ' + ( d[7] ? ' checked ' : '' ) + '"></div></div>' +
-                        '<div class="form-group row"><label class="col-4 col-form-label"><strong class="ml-1">Hours</strong></label><div class="col-8"><input class="form-control" type="number" id="hours" name="hours" value="' + d[8] + '"' + '" style="width: 75px;"></div></div>' +
+                    '<div class="col-md-5">' +
+                        '<div class="form-group row mb-2"><div class="col-12"><strong class="mr-1">Hired? </strong> <input type="checkbox" id="hired" name="hired" ' + ( d[7] ? ' checked ' : '' ) + '"></div></div>' +
+                        '<div class="form-group row"><div class="col-12"><label class="form-label d-inline"><strong class="mr-1">Hours</strong></label><input class="form-control d-inline" type="number" id="hours" name="hours" value="' + d[8] + '"' + '" style="width: 75px;"></div></div>' +
                         '<label class="form-check-label"><strong class="ml-1">Notes:</strong></label>' +
                         show_notes(d[9]) +
                         '<textarea name="note" class="form-control" placeholder="Add note"></textarea>' +
-                        '<button class="btn btn-primary btn-claim btn-md text-uppercase save mt-3" type="submit">SAVE</button>' +
+                        '' +
                         '<div class="response"></div>' +
+
+
                     '</div>' +
                     '</div>' +
                 '</form></div>';
             }
-            function format2 ( d ) {
-                return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%;">'+
-                    '<tr>'+
-                        '<td>Phone:</td>'+
-                        '<td>'+d[2]+'</td>'+
-                    '</tr>'+
-                    '<tr>'+
-                        '<td>Ambassador:</td>'+
-                        '<td>' +
-                            '<a href="' + '{{ route("ambassadors") }}?search=' + d[5] + '">' + d[5] + '</a>' +
-                        '</td>'+
-                    '</tr>'+
-                    '<tr>'+
-                        '<td style="white-space:nowrap; min-width: 100px; width: 25%;">Referred date:</td>'+
-                        '<td>' + d[6] + '</td>'+
-                    '</tr>'+
-                '</table>';
-            }
+
             var currentdate = new Date();
             var formatDate = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1)  + "-" + currentdate.getDate();
 
@@ -285,7 +271,7 @@
 
 
                         setTimeout(function () {
-                            $('.details', row.child()).find('button').text('Save').toggleClass('btn-success').removeAttr('disabled');
+                            $('.details', row.child()).find('button').text('Update').toggleClass('btn-success').removeAttr('disabled');
                         }, 1000);
 
                     }

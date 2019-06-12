@@ -14,6 +14,7 @@
         <script>
             $(document).ready(function() {
                 function format ( d ) {
+
                     var referrals = '';
                     d[3].split("|").forEach(function(referral){
                         referrals = referrals + '<a href="' + '{{ route("dashboard") }}?search=' + referral.trim() + '">' + referral.trim() + '</a><br>';
@@ -26,6 +27,10 @@
                         '<tr>'+
                             '<td style="white-space:nowrap; min-width: 100px; width: 25%;">Join date:</td>'+
                             '<td>'+ d[4] +'</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                            '<td style="white-space:nowrap; min-width: 100px; width: 25%;">Delete ambassador?</td>'+
+                            '<td><a href="/dashboard/api/delete_ambassadors/'+ d['DT_RowId'].replace(/\D/g, '') +'" class="btn btn-danger" onclick="return confirm(\'Are you sure you want to delete ambassador: '+  d[0] +'\');">Delete</a></td>'+
                         '</tr>'+
                     '</table>';
                 }

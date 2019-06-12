@@ -81,6 +81,12 @@ class AmbassadorController extends Controller
      */
     public function destroy(Ambassador $ambassador)
     {
-        //
+        if(!$ambassador->id){
+            return redirect()->back()->with('status', 'Ambassador not found!');
+        }
+
+        $status = 'Ambassador '.$ambassador->name . ' has been deleted. All referrals submitted by this ambassador have been deleted as well.';
+        $ambassador->delete();
+        return redirect()->back()->with('status', $status);
     }
 }
