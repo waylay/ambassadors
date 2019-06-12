@@ -37,7 +37,7 @@
                 <h4 class="mb-0 ml-4 ml-sm-0">Ambassador Program</h4>
 
                 @guest
-
+                <div class="d-flex" style="flex:auto"></div>
                 @else
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
