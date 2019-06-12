@@ -17,11 +17,27 @@ main {
     flex-basis: 100%;
     min-height: 75vh;
     justify-content: center;
-    background-image: url('/images/bg.png');
     background-repeat: no-repeat;
-    background-position: 30% center;
     background-color: #404040;
 }
+
+.card-about {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    h2, h3, h4, h5 {
+        font-weight: 700;
+    }
+    background-color: #c9e06f;
+    border-color: #c9e06f;
+    .block {
+        border: 6px solid #82d661;
+        .d-inline-block {
+            letter-spacing: 2px;
+        }
+    }
+}
+
 
 .dataTable {
     th {
