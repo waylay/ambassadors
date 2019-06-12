@@ -17,13 +17,13 @@
 
                         <div class="block p-2 mb-3">
                             <h4 class="card-title">Get rewarded for your referrals!</h4>
-                            <h5>1.Cash for referrals!</h5>
+                            <h5>1. Cash for referrals!</h5>
                             <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 1-3 candidates = $100 per candidate</p>
                             <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center text-white"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 4-9 candidates = $200 per candidate</p>
                             <p class="card-text d-flex align-items-center mb-4"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 10+ candidates = $300 per candidate</p>
-                            <h5>2.Quarterly cash drawing for top ambassadors</h5>
+                            <h5>2. Quarterly cash drawing for top ambassadors</h5>
                             <p class="card-text mb-4"><i class="fas fa-money-bill-wave"></i> Eligible ambassadors included in $100 quarterly drawings. Note: 3 referral minimum to be eligible for drawing.</p>
-                            <h5>Receive super cool HH Staffing branded items</h5>
+                            <h5>3. Receive super cool HH Staffing branded items</h5>
                             <p class="card-text mb-4">After 3rd referral, receive a special gift from HH Staffing <i class="fas fa-cocktail"></i></p>
                             <h5 class="mb-4">4. All ambassador's eligible for year-end special cash drawing.</h5>
                             <h5 class="card-text">*Note: Above rewards are reset each calendar year.</h5>
