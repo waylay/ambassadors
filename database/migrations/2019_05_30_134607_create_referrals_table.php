@@ -14,6 +14,7 @@ class CreateReferralsTable extends Migration
     public function up()
     {
         Schema::create('referrals', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ambassador_id');
             $table->foreign('ambassador_id')->references('id')->on('ambassadors')->onDelete('cascade');
