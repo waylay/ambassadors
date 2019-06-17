@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'roberturban78@gmail.com',
         ]);
 
-        factory(App\Ambassador::class, 2)
+        factory(App\Ambassador::class, 1)
             ->create()
             ->each(function ($ambassador) {
                 factory(App\Referral::class, 25)->create(['ambassador_id'=>$ambassador->id]);

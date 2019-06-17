@@ -4,46 +4,45 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-7 col-md-6">
-                <div class="card card-about mt-4">
-                    <div class="card-body">
 
-                        <div class="block p-2 mb-3">
-                            <h4 class="card-title">HH Staffing Ambassador Program Overview</h4>
-                            <p class="card-text mb-2">We want your great referrals!</p>
-                            <h5 class="mb-4">Refer candidates, Get Rewarded, Simple as that! <i class="fas fa-money-bill-wave"></i></h5>
-                            <h5>How to become an HH Staffing ambassador? <i class="fas fa-user-friends"></i></h5>
-                            <p class="card-text">Anybody and everybody can be an ambassador, just refer great candidates to us!</p>
-                        </div><!-- /.block -->
-
-                        <div class="block p-2 mb-3">
-                            <h4 class="card-title">Get rewarded for your referrals!</h4>
-                            <h5>1. Cash for referrals!</h5>
-                            <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 1-3 candidates = $100 per candidate</p>
-                            <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center text-white"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 4-9 candidates = $200 per candidate</p>
-                            <p class="card-text d-flex align-items-center mb-4"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 10+ candidates = $300 per candidate</p>
-                            <h5>2. Quarterly cash drawing for top ambassadors</h5>
-                            <p class="card-text mb-4"><i class="fas fa-money-bill-wave"></i> Eligible ambassadors included in $100 quarterly drawings. Note: 3 referral minimum to be eligible for drawing.</p>
-                            <h5>3. Receive super cool HH Staffing branded items</h5>
-                            <p class="card-text mb-4">After 3rd referral, receive a special gift from HH Staffing <i class="fas fa-cocktail"></i></p>
-                            <h5 class="mb-4">4. All ambassador's eligible for year-end special cash drawing.</h5>
-                            <h5 class="card-text">*Note: Above rewards are reset each calendar year.</h5>
-                        </div><!-- /.block -->
-
-
-                        <div class="block p-2 mb-0">
-                            <h4 class="card-title">Program Guidelines <i class="fas fa-clipboard-list"></i></h4>
-
-
-
-                            <ol class="pl-3 mb-0">
-                                <li><p class="card-text mb-1">All referrals must be referred through program website. (Website)</p></li>
-                                <li><p class="card-text mb-1">Referred candidates need to be a new candidate that has never worked or interviewed with HH Staffing previously.</p></li>
-                                <li><p class="card-text mb-1">Referral bonus subject to referred candidate being hired and candidate must complete 80 hours of work in a calendar year. All referrals hired on as Direct-Hire must work 60 consecutive days.</p></li>
-                            </ol>
-                        </div><!-- /.block -->
-
-                    </div>
+            <div class="card card-about mt-4">
+                <div class="card-header"><h5 class="card-title mb-0">HH Staffing Ambassador Program Overview</h5></div>
+                <div class="card-body">
+                    <p class="card-text mb-2">We want your great referrals!</p>
+                    <h5 class="mb-4">Refer candidates, Get Rewarded, Simple as that! <i class="fas fa-money-bill-wave"></i></h5>
+                    <h5>How to become an HH Staffing ambassador? <i class="fas fa-user-friends"></i></h5>
+                    <p class="card-text">Anybody and everybody can be an ambassador, just refer great candidates to us!</p>
                 </div>
+            </div>
+
+            <div class="card card-about mt-4">
+                <div class="card-header"><h5 class="card-title mb-0">Get rewarded for your referrals!</h5></div>
+                <div class="card-body">
+                    <h5>1. Cash for referrals!</h5>
+                    <div class="mt-3">
+                    <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 1-3 candidates = $100 per candidate</p>
+                    <p class="card-text d-flex align-items-center mb-2"><span class="d-inline-block w-25 text-center text-white"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 4-9 candidates = $200 per candidate</p>
+                    <p class="card-text d-flex align-items-center mb-4"><span class="d-inline-block w-25 text-center"><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><br><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i><i class="fas fa-male"></i></span>= Refer 10+ candidates = $300 per candidate</p>
+                </div><!-- /.block -->
+                    <h5>2. Quarterly cash drawing for top ambassadors</h5>
+                    <p class="card-text mb-4"><i class="fas fa-money-bill-wave"></i> Eligible ambassadors included in $100 quarterly drawings. Note: 3 referral minimum to be eligible for drawing.</p>
+                    <h5>3. Receive super cool HH Staffing branded items</h5>
+                    <p class="card-text mb-4">After 3rd referral, receive a special gift from HH Staffing <i class="fas fa-cocktail"></i></p>
+                    <h5 class="mb-4">4. All ambassador's eligible for year-end special cash drawing.</h5>
+                    <h5 class="card-text">*Note: Above rewards are reset each calendar year.</h5>
+                </div>
+            </div>
+
+            <div class="card card-about mt-4">
+                <div class="card-header"><h5 class="card-title mb-0">Program Guidelines <i class="fas fa-clipboard-list"></i></h5></div>
+                <div class="card-body">
+                    <ol class="pl-3 mb-0">
+                        <li><p class="card-text mb-1">Referred candidates need to be a new candidate that has never worked or interviewed with HH Staffing previously.</p></li>
+                        <li><p class="card-text mb-1">Referral bonus subject to referred candidate being hired and candidate must complete 80 hours of work in a calendar year. All referrals hired on as Direct-Hire must work 60 consecutive days.</p></li>
+                    </ol>
+                </div>
+            </div>
+
         </div>
         <div class="col-lg-5 col-md-6">
             @if (session('success'))
