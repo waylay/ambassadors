@@ -22,10 +22,25 @@ class DatabaseSeeder extends Seeder
             'email' => 'roberturban78@gmail.com',
         ]);
 
-        factory(App\Ambassador::class, 1)
-            ->create()
-            ->each(function ($ambassador) {
-                factory(App\Referral::class, 25)->create(['ambassador_id'=>$ambassador->id]);
-            });
+        factory(App\User::class)->create([
+            'name' => 'Darrin Rohr',
+            'email' => 'darrin@hhstaffingservices.com',
+        ]);
+
+        factory(App\User::class)->create([
+            'name' => 'Adriana Colon Gandia',
+            'email' => 'adriana@hhstaffingservices.com',
+        ]);
+
+        factory(App\User::class)->create([
+            'name' => 'Karen Veliz',
+            'email' => 'kveliz@hhstaffingservices.com',
+        ]);
+
+        // factory(App\Ambassador::class, 1)
+        //     ->create()
+        //     ->each(function ($ambassador) {
+        //         factory(App\Referral::class, 25)->create(['ambassador_id'=>$ambassador->id]);
+        //     });
     }
 }
