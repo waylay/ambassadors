@@ -24,7 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "jszip": "^3.2.1",
+        "jszip": "^3.7.0",
         "pdfmake": "^0.1.56"
     }
 }
